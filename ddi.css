@@ -1,0 +1,10 @@
+/* -*- CSS -*- */
+/* Copyright (c) 2006 - 2019 omobus-ddi authors, see the included COPYRIGHT file. */
+
+body {
+    margin: 4px 20px 4px 20px;
+    background-color: #f6f6f6;
+    font-family: verdana, arial, sans-serif;
+    font-weight: normal;
+    font-size: 10pt;
+}
