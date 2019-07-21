@@ -124,7 +124,7 @@ function websvc_main()
 		    local z = get(ld, params.to, config.ldap.search.users)
 		    if z == nil then
 			scgi.writeHeader(res, 401, {["Content-Type"] = mime.txt .. "; charset=utf-8"})
-			scgi.writeBody(res, string.format("Access to the [%s] user parameters is not allowed.", env.REMOTE_USER))
+			scgi.writeBody(res, string.format("Access to the [%s] user parameters is not allowed.", params.to))
 			log.w(string.format("[audit] %s (IP: %s) -> permission denied to the %s attributes", 
 			    uid, env.REMOTE_ADDR, params.to))
 		    else
@@ -165,7 +165,9 @@ function websvc_main()
 		    stor.init()
 		    local tb, err = stor.get(function(tran, func_execute) return func_execute(tran,
 [[
-select user_id, descr, role, dev_login from users where role is not null and dev_login is not null and (hidden = 0 or user_id = %uid%) order by dev_login
+select user_id, descr, role, dev_login from users
+    where role is not null and role <> '' and dev_login is not null and dev_login <> '' and (hidden = 0 or user_id = %uid%)
+order by dev_login
 ]]
 			, "//users", {uid = p.attrs.syncErpId}
 		    ) end)
