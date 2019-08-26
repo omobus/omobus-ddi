@@ -135,7 +135,7 @@ function websvc_main()
 			    rep.serviceList = z.attrs.serviceList
 			end
 			if p.attrs.terminalList ~= nil and z.attrs.terminalList ~= nil then
-			    rep.serviceList = z.attrs.terminalList
+			    rep.terminalList = z.attrs.terminalList
 			end
 			local add = {'+'};
 			if p.attrs.serviceList == nil and z.attrs.serviceList ~= nil then
