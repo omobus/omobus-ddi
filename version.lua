@@ -4,7 +4,7 @@
 local M = {} -- public interface
 
 M.package_code		= "ddi"
-M.package_version	= "3.5.1"
+M.package_version	= "3.5.2"
 M.package_name		= "omobus-" .. M.package_code
 
 return M

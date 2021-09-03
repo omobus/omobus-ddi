@@ -25,7 +25,7 @@ M.ldap		= {
     }
 }
 
--- *** Main data storage parameters ***
+-- *** PostgreSQL server parameters ***
 M.data 		= {
     server	= "hostaddr=127.0.0.1 port=5432",
     storage	= "omobus-proxy-db",
